@@ -2,8 +2,22 @@ import react, { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
+// importing the store funcction
+import { useSelector, useDispatch } from 'react-redux'
+import { decrement, increment } from './ReduxSlice/Slice'
 function App() {
+
+
+
+  // redux states 
+  const countnew = useSelector((state) => state.counter.value)
+  const dispatch = useDispatch()
+
+
+
+  const count = useSelector((state) => state.counter.value)
   const navigate = useNavigate();
 
   const [username, setUsername] = useState("");
@@ -204,28 +218,14 @@ function App() {
         </div>
       </div>
 
-      <div className="otpvaluecheck">
-        <form
-          action="
-  
-  "
-          onSubmit={otpfunction}
-        >
-          <input
-            type="email"
-            placeholder="type your email"
-            value={email}
-            onChange={emailfunction}
-          />
-          <input
-            type="number"
-            placeholder="typeotp"
-            value={userotp}
-            onChange={(e) => setuserotp(e.target.value)}
-          />
-          <button type="submit">Click for otp</button>
-        </form>
-      </div>
+
+
+<Link to={"/dashboard"}>Lazy</Link>
+
+ <p>{countnew}</p>
+ <button onClick={()=>dispatch(increment())}>Click</button>
+      
+
     </>
   );
 }

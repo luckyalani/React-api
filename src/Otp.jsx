@@ -71,7 +71,7 @@ const Otp = () => {
 
 
       {/* displaying the dashoboad component in conditional rendering format  */}
-          <Dashboard token={token}/>
+          {/* <Dashboard token={token}/> */}
 
         
     </>
